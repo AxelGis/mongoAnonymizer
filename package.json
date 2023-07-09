@@ -1,1 +1,37 @@
-    "start:dev": "npx nodemon",
+{
+  "name": "mongoanonymizer",
+  "version": "1.0.0",
+  "description": "Anonymizer for mongoDb collection",
+  "main": "build/app.js",
+  "scripts": {
+    "start": "npm run build && node build/app.js",
+    "start:dev": "nodemon --watch src --ext ts ./src/app.ts",
+    "sync": "npm run build && node build/sync.js",
+    "sync:full": "npm run build && node build/sync.js --full-reindex",
+    "sync:dev": "nodemon --watch src --ext ts ./src/sync.ts",
+    "build": "tsc",
+    "pretty": "prettier . --write",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxelGis/mongoAnonymizer.git"
+  },
+  "author": "AxelGis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AxelGis/mongoAnonymizer/issues"
+  },
+  "homepage": "https://github.com/AxelGis/mongoAnonymizer#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@types/node": "^20.4.1",
+    "nodemon": "^3.0.0",
+    "prettier": "3.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "mongodb": "^5.7.0"
+  }
+}
