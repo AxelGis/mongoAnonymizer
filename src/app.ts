@@ -1,16 +1,16 @@
 import { faker } from "@faker-js/faker";
 import { Db, MongoClient } from "mongodb";
 import { Item } from "./types";
-import { uri, dbName } from "./mongodb";
+import { uri, dbName } from "./config";
 
-const collectionName: string = "customers";
-const interval: number = 200;
+const collectionName: string = "customers"; //main collection name
+const interval: number = 200; //insert data interval in miliseconds
 
 const insertCustomers = async () => {
   try {
     const client: MongoClient = await MongoClient.connect(uri);
     const db: Db = client.db(dbName);
-    const collection = db.collection(collectionName);
+    const collection = db.collection<Item>(collectionName);
 
     while (true) {
       const customers: Item[] = Array.from(
