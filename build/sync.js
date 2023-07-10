@@ -218,9 +218,10 @@ var anonymizeEmail = function (email) {
  * @param input - input string
  * @returns
  */
-var anonymizeProperty = function (input) {
+var anonymizeProperty = function (input, length) {
+    if (length === void 0) { length = 8; }
     faker_1.faker.seed(input.length);
-    var randomString = faker_1.faker.string.alphanumeric({ length: 8 });
+    var randomString = faker_1.faker.string.alphanumeric({ length: length });
     return randomString;
 };
 var fullReindex = process.argv[2] === "--full-reindex";

@@ -144,9 +144,9 @@ const anonymizeEmail = (email: string): string => {
  * @param input - input string
  * @returns
  */
-const anonymizeProperty = (input: string): string => {
+const anonymizeProperty = (input: string, length: number = 8): string => {
   faker.seed(input.length);
-  const randomString: string = faker.string.alphanumeric({ length: 8 });
+  const randomString: string = faker.string.alphanumeric({ length });
   return randomString;
 };
 
